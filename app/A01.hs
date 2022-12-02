@@ -1,4 +1,4 @@
-module A01 where
+module A01 (a01) where
 
 import Data.Foldable
 import Data.List
