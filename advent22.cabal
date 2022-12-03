@@ -27,6 +27,7 @@ executable advent22
                       A01,
                       A02,
                       A03,
+                      A04
 
     -- LANGUAGE extensions used by modules in this package.
     other-extensions: OverloadedStrings
@@ -37,4 +38,4 @@ executable advent22
 
     hs-source-dirs:   app
     default-language: GHC2021
-    ghc-options:      -Wdefault -Wmissing-signatures
+    ghc-options:      -Wdefault -Wmissing-signatures -Wunused-imports

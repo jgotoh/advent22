@@ -1,7 +1,7 @@
 module A01 (a01) where
 
 import Data.Foldable
-import qualified Data.List as List
+import Data.List
 import Parser
 import Text.Read
 
@@ -22,7 +22,7 @@ a01 = do
 
   let calories = computeCalories elves
       max' = maximum calories
-      sorted = reverse $ List.sort calories
+      sorted = reverse $ sort calories
       topThree = take 3 sorted
       sumTop = sum topThree
 

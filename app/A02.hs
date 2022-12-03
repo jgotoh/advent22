@@ -1,10 +1,6 @@
 module A02 (a02) where
 
-import Data.Foldable
-import Data.List
-import Data.Void
 import Parser
-import Text.Read
 
 data Shape = Rock | Paper | Scissors
   deriving (Show)

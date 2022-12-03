@@ -1,14 +1,8 @@
 module A03 (a03) where
 
-import Data.Char (isUpper, ord, toLower)
-import Data.Foldable
+import Data.Char (isUpper, toLower)
 import Data.List
-import Data.Void
 import Test.Tasty.HUnit ((@?=))
-import Text.Megaparsec
-import Text.Megaparsec.Char
-import Text.Megaparsec.Char.Lexer hiding (space)
-import Text.Read
 
 testInput :: String
 testInput =
