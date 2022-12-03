@@ -24,11 +24,16 @@ executable advent22
 
     -- Modules included in this executable, other than Main.
     other-modules:    A01,
-                      A02
+                      A02,
+                      A03
 
     -- LANGUAGE extensions used by modules in this package.
     other-extensions: OverloadedStrings
     build-depends:    base ^>=4.16.0.0,
-                      megaparsec
+                      megaparsec,
+                      tasty,
+                      tasty-hunit
+
     hs-source-dirs:   app
     default-language: GHC2021
+    ghc-options:      -Wdefault -Wmissing-signatures

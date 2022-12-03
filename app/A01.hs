@@ -1,7 +1,7 @@
 module A01 (a01) where
 
 import Data.Foldable
-import Data.List
+import qualified Data.List as List
 import Data.Void
 import Text.Megaparsec
 import Text.Megaparsec.Char
@@ -25,10 +25,9 @@ a01 = do
   -- let testinput = "3427\n3273\n5615\n5943\n3125\n4245\n4194\n3243\n4283\n1790\n5355\n4239\n5541\n\n3850\n"
   elves <- parseContent content
 
-  let contents = lines content
-      calories = computeCalories elves
+  let calories = computeCalories elves
       max' = maximum calories
-      sorted = reverse $ sort calories
+      sorted = reverse $ List.sort calories
       topThree = take 3 sorted
       sumTop = sum topThree
 
