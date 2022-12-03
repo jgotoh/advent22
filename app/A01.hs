@@ -2,10 +2,7 @@ module A01 (a01) where
 
 import Data.Foldable
 import qualified Data.List as List
-import Data.Void
-import Text.Megaparsec
-import Text.Megaparsec.Char
-import Text.Megaparsec.Char.Lexer
+import Parser
 import Text.Read
 
 type CaloriesEntry = Int
@@ -15,15 +12,13 @@ type Elf = [CaloriesEntry]
 -- separated by blank line
 type Elves = [Elf]
 
-type Parser = Parsec Void String
-
 a01 :: IO ()
 a01 = do
   content <- readFile "input01"
 
   -- elves = readElves contents
   -- let testinput = "3427\n3273\n5615\n5943\n3125\n4245\n4194\n3243\n4283\n1790\n5355\n4239\n5541\n\n3850\n"
-  elves <- parseContent content
+  elves <- parseContent parseElves content
 
   let calories = computeCalories elves
       max' = maximum calories
@@ -33,15 +28,6 @@ a01 = do
 
   print $ "max " <> show max'
   print $ "sum top three " <> show sumTop
-
-parseContent :: String -> IO Elves
-parseContent content = do
-  let result = parse parseElves "" content
-  case result of
-    Left err -> do
-      print $ errorBundlePretty err
-      return []
-    Right elves -> return elves
 
 parseElves :: Parser Elves
 parseElves = many elf

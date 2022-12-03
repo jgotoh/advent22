@@ -3,9 +3,7 @@ module A02 (a02) where
 import Data.Foldable
 import Data.List
 import Data.Void
-import Text.Megaparsec
-import Text.Megaparsec.Char
-import Text.Megaparsec.Char.Lexer hiding (space)
+import Parser
 import Text.Read
 
 data Shape = Rock | Paper | Scissors
@@ -23,8 +21,6 @@ data RoundObj = RoundObj OtherChoice Outcome
 
 data Outcome = Lose | Draw | Win
   deriving (Show)
-
-type Parser = Parsec Void String
 
 shapeOf :: Char -> Shape
 shapeOf c = case c of
@@ -67,14 +63,6 @@ a02 = do
 
   print $ "totalScore " <> show totalScore
   print $ "totalScore' " <> show totalScore'
-
-parseContent :: Parser a -> String -> IO a
-parseContent parser content = do
-  let result = parse parser "" content
-  case result of
-    Left err -> do
-      error $ errorBundlePretty err
-    Right xs -> return xs
 
 roundsParser :: Parser [Round]
 roundsParser = many round'
