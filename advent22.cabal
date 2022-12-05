@@ -27,14 +27,16 @@ executable advent22
                       A01,
                       A02,
                       A03,
-                      A04
+                      A04,
+                      A05
 
     -- LANGUAGE extensions used by modules in this package.
     other-extensions: OverloadedStrings
     build-depends:    base ^>=4.16.0.0,
                       megaparsec,
                       tasty,
-                      tasty-hunit
+                      tasty-hunit,
+                      vector
 
     hs-source-dirs:   app
     default-language: GHC2021
