@@ -28,7 +28,8 @@ executable advent22
                       A02,
                       A03,
                       A04,
-                      A05
+                      A05,
+                      A06
 
     -- LANGUAGE extensions used by modules in this package.
     other-extensions: OverloadedStrings

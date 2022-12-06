@@ -4,6 +4,7 @@ import Data.List
 import Data.Maybe
 import qualified Data.Vector as V
 import qualified Data.Vector.Generic.Mutable as ST
+import Debug.Trace
 import Parser
 
 testInput :: String
@@ -55,10 +56,7 @@ stacksParser = do
   takeWhileP Nothing (/= '\n')
   newline
   newline
-  return $ stackRowsToStacks rows
-
-app :: [[Char]] -> [[Char]] -> [[Char]]
-app xs ys = xs ++ ys
+  return $ stackRowsToStacks (trace (show rows) rows)
 
 stackRowParser :: Parser StackRow
 stackRowParser = do
@@ -80,8 +78,7 @@ stackEntryParser =
 
 remainingStackEntries :: Parser StackRow
 remainingStackEntries = do
-  -- TODO solution may be to return [[]] instead of just []
-  stackRowParser <|> (newline >> return []) <|> return []
+  stackRowParser <|> return []
 
 movesParser :: Parser [Move]
 movesParser = do

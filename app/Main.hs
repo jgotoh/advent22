@@ -4,7 +4,7 @@ module Main where
 -- import A02
 -- import A03
 -- import A04
-import A05
+import A06
 
 main :: IO ()
-main = a05
+main = a06
